@@ -25,7 +25,7 @@ export default function Home() {
           />
         </div>
 
-        <button className="text-white bg-[#35858E] p-3 rounded-full border border-black hover:cursor-pointer">
+        <button className="transition-all text-white bg-[#35858E] p-3 rounded-full border border-black hover:cursor-pointer duration-150">
           Login Master!
         </button>
       </form>
