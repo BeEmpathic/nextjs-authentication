@@ -1,9 +1,12 @@
+"use client";
 import { useActionState } from "react";
 import { login } from "@/app/actions/auth";
 
 export default function Home() {
   // TODOS FOR THIS PROJECT !!!!!!:
+  // - Prepare mongoDB to store users so you know how to work with mongoDB
   // - Code the authenticatoin logic and then finish the design
+  // - use zod I guess to check the inputs I still don't know why would you use zod
   // - Try making external classes for inputs
   // - Finish styling:
   // -  Make it so it looks better
