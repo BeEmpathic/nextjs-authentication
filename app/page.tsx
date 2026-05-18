@@ -4,7 +4,7 @@ import { login } from "@/app/actions/auth";
 
 export default function Home() {
   // TODOS FOR THIS PROJECT !!!!!!:
-  // - Prepare mongoDB to store users so you know how to work with mongoDB
+  // - Understand how the hashing works in next.js and how to check if the user gave correct password
   // - Code the authenticatoin logic and then finish the design
   // - use zod I guess to check the inputs I still don't know why would you use zod
   // - Try making external classes for inputs
