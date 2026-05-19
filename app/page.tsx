@@ -4,8 +4,9 @@ import login from "@/app/actions/auth";
 
 export default function Home() {
   // TODOS FOR THIS PROJECT !!!!!!:
-  // - decide if you want the user form to be component inserted in to the webiste or it to be a separate page
-  // - creat user creation form just so it's easier for you to test users
+  // - Make so all the actions are in one file called usersActions
+  // - make so it shows you if you made an user or not, maybe show somewhere avaiable users
+
   // - add mongoose maybe
   // - Understand how the hashing works in next.js and how to check if the user gave correct password
   // - Code the authenticatoin logic and then finish the design

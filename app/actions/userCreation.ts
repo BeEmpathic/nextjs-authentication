@@ -27,4 +27,4 @@ const createUser = async (state: unknown, formData: FormData) => {
   }
 };
 
-export default { createUser };
+export default createUser;
