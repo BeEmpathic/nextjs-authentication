@@ -1,0 +1,23 @@
+db.runCommand({
+    collMod: "users",
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "User Object Validation",
+            required: [
+                "username",
+                "password"
+            ],
+            properties: {
+                username: {
+                    bsonType: "string",
+                    description: "Name must be a string and it's required",
+                },
+                password: {
+                    bsonType: "string", 
+                    description: "Password must be a string and it's required too!",
+                },
+            },
+        },
+    },
+})

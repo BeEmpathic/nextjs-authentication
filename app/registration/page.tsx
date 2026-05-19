@@ -3,19 +3,6 @@ import { useActionState } from "react";
 import login from "@/app/actions/auth";
 
 export default function Home() {
-  // TODOS FOR THIS PROJECT !!!!!!:
-  // - decide if you want the user form to be component inserted in to the webiste or it to be a separate page
-  // - creat user creation form just so it's easier for you to test users
-  // - add mongoose maybe
-  // - Understand how the hashing works in next.js and how to check if the user gave correct password
-  // - Code the authenticatoin logic and then finish the design
-  // - use zod I guess to check the inputs I still don't know why would you use zod
-  // - Try making external classes for inputs
-  // - Finish styling:
-  // -  Make it so it looks better
-  // - Make a place to show the error
-  // - Finish styling the button
-  // - Add padding to the inputs
   const [state, action, pending] = useActionState(login, undefined);
   if (state) console.log(state);
   return (

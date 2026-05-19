@@ -43,4 +43,4 @@ const login = async (state: unknown, formData: FormData) => {
   }
 };
 
-export { login };
+export default { login };
