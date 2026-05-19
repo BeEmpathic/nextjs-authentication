@@ -1,9 +1,9 @@
 "use client";
 import { useActionState } from "react";
-import createUser from "@/app/actions/userCreation";
+import { userCreate, usersGetAll } from "@/app/actions/usersActions";
 
 export default function Home() {
-  const [state, action, pending] = useActionState(createUser, undefined);
+  const [state, action, pending] = useActionState(userCreate, undefined);
   if (state) console.log(state);
   return (
     <div className="flex margin-auto items-center justify-center bg-background text-foreground w-full min-h-dvh">
