@@ -4,6 +4,9 @@ import { login } from "@/app/actions/auth";
 
 export default function Home() {
   // TODOS FOR THIS PROJECT !!!!!!:
+  // - creat user creation form just so it's easier for you to test users
+  // - add mongoose
+  // - learn how to do the JSON check in MongoDB
   // - Understand how the hashing works in next.js and how to check if the user gave correct password
   // - Code the authenticatoin logic and then finish the design
   // - use zod I guess to check the inputs I still don't know why would you use zod
