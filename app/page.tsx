@@ -4,6 +4,7 @@ import { userLogin } from "@/app/actions/usersActions";
 
 export default function Home() {
   // TODOS FOR THIS PROJECT !!!!!!:
+  // - Fix types cause type script has some huge problem to the database after that you my reconsider installing mongoose caues it's good just fucking do it and stop dogeing that
   // - Make so all the actions are in one file called usersActions
   // - make so it shows you if you made an user or not, maybe show somewhere avaiable users
 
@@ -17,7 +18,7 @@ export default function Home() {
   // - Make a place to show the error
   // - Finish styling the button
   // - Add padding to the inputs
-  const [state, action, pending] = useActionState(login, undefined);
+  const [state, action, pending] = useActionState(userLogin, undefined);
   if (state) console.log(state);
   return (
     <div className="flex margin-auto items-center justify-center bg-background text-foreground w-full min-h-dvh">

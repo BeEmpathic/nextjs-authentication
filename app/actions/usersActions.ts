@@ -73,12 +73,16 @@ const usersGetAll = async () => {
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
 
-    const result = await db.collection("users").find();
+    const result: Array<{
+      username: string;
+      password: string;
+    }> = await db.collection("users").find().toArray();
 
     return result;
   } catch (error) {
     console.error("Database error failed to get users", error);
     throw error;
+    return "Data base problem";
   }
 };
 
