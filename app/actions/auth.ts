@@ -14,13 +14,25 @@ const login = async (state: unknown, formData: FormData) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     console.log(hashedPassword);
 
-    const user = { username, hashedPassword };
-
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
-    const result = await db.collection("users").find({ username });
 
-    const isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
+    // this creates user in database
+    // const result = await db
+    //   .collection("users")
+    //   .insertOne({ username: username, password: hashedPassword });
+
+    // this is trying to get user out of the database ;-;
+
+    const result = await db
+      .collection("users")
+      .find({ username: username })
+      .toArray();
+
+    console.log("The result should be user's object: ", result);
+    console.log(result[0].username);
+
+    const isPasswordValid = await bcrypt.compare(password, result[0].password);
 
     console.log("Is password valid?: ", isPasswordValid);
 
