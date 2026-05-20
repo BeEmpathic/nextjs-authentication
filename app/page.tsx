@@ -1,52 +1,24 @@
 "use client";
-import { useActionState } from "react";
-import { userLogin } from "@/app/actions/usersActions";
+import LoginRegisterForm from "@/components/LoginRegisterForm";
+
+// TODOS FOR THIS PROJECT !!!!!!:
+// - Think about checking how it was done that one component could change without the whole website reoloading something like this I think it was working on links to maybe group
+// - Make the login / register form as a separate component so you have only one component to work with it will make work easier
+// - Make so the list of users is hidden behind the loign/register form and them make it so it pops out to the right side from behind the login / register form
+// - Add endless amount of todos, so the project takes one year to almost finish,
+//  then leave it behind unfinished to learn something that won't get you a job
+// - Make so all the actions are in one file called usersActions
+// - make so it shows you if you made an user or not, maybe show somewhere avaiable users
+
+// - add mongoose maybe
+
+// - Code the authenticatoin logic and then finish the design
+// - use zod I guess to check the inputs I still don't know why would you use zod
+// - Try making external classes for inputs
+// - Finish styling:
+// -  Make it so it looks better
+// - Make a place to show the error
 
 export default function Home() {
-  // TODOS FOR THIS PROJECT !!!!!!:
-  // - Think about checking how it was done that one component could change without the whole website reoloading something like this I think it was working on links to maybe group
-  // - Make the login / register form as a separate component so you have only one component to work with it will make work easier
-  // - Make so the list of users is hidden behind the loign/register form and them make it so it pops out to the right side from behind the login / register form
-  // - Add endless amount of todos, so the project takes one year to almost finish,
-  //  then leave it behind unfinished to learn something that won't get you a job
-  // - Make so all the actions are in one file called usersActions
-  // - make so it shows you if you made an user or not, maybe show somewhere avaiable users
-
-  // - add mongoose maybe
-
-  // - Code the authenticatoin logic and then finish the design
-  // - use zod I guess to check the inputs I still don't know why would you use zod
-  // - Try making external classes for inputs
-  // - Finish styling:
-  // -  Make it so it looks better
-  // - Make a place to show the error
-
-  const [state, action, pending] = useActionState(userLogin, undefined);
-  if (state) console.log(state);
-  return (
-    <div className="flex margin-auto items-center justify-center bg-background text-foreground w-full min-h-dvh">
-      <form
-        action={action}
-        className="min-w-lg inset-shadow-xl shadow-purple-400 rounded-2xl bg-[#F0FFC2] flex flex-col p-8 border min-h-1/3 gap-5"
-      >
-        <h1 className="text-center font-bold">Welcome Home Master!</h1>
-        <div className="flex flex-col">
-          <label htmlFor="username">Username: </label>
-          <input className="border border-black" type="text" name="username" />
-        </div>
-        <div className=" flex flex-col">
-          <label htmlFor="password">Password: </label>
-          <input
-            className="border border-black"
-            type="password"
-            name="password"
-          />
-        </div>
-
-        <button className="active:bg-[#09414A] hover:bg-[#13636C] transition-all text-white bg-[#35858E] p-3 rounded-full border border-black hover:cursor-pointer duration-150">
-          Login Master!
-        </button>
-      </form>
-    </div>
-  );
+  return <LoginRegisterForm loginOrRegister={true} />;
 }
