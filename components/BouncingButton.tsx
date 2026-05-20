@@ -99,7 +99,7 @@ const BouncingNavButton = ({
     <button
       ref={buttonRef}
       onClick={() => router.push(targetRoute)}
-      className={`fixed z-50 px-6 py-3 rounded-lg text-white font-bold shadow-2xl border-white tranition-colors duration-150 select-none cursor-pointer`}
+      className={`${colors[colorIndex]} fixed z-10 px-6 py-3 rounded-lg text-white font-bold shadow-2xl border-white tranition-colors duration-150 select-none cursor-pointer`}
       style={{ willChange: "transfrom, top, left" }} // optmalization by Ai
     >
       <span className={`inline-block ${colorIndex} px-4 py-2 rounded`}>

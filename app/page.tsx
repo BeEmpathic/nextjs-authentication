@@ -3,6 +3,7 @@ import BouncingNavButton from "@/components/BouncingButton";
 import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // TODOS FOR THIS PROJECT !!!!!!:
+// - Fix the button DVDPlayer
 // - Add button which moves like DVDplayer save screen logo as swap between login and register pages
 // - Think about checking how it was done that one component could change without the whole website reoloading something like this I think it was working on links to maybe group
 // - Make so the list of users is hidden behind the loign/register form and them make it so it pops out to the right side from behind the login / register form
@@ -22,9 +23,9 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 export default function Home() {
   return (
-    <>
-      <LoginRegisterForm loginOrRegister={true} />;
-      <BouncingNavButton label="sexy button" targetRoute="/" />
-    </>
+    <main className="flex margin-auto items-center justify-center bg-background text-foreground w-full min-h-dvh">
+      <LoginRegisterForm loginOrRegister={true} />
+      <BouncingNavButton label="Registration" targetRoute="/registration" />
+    </main>
   );
 }
