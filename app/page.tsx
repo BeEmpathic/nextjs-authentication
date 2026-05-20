@@ -1,4 +1,5 @@
 "use client";
+import BouncingNavButton from "@/components/BouncingButton";
 import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // TODOS FOR THIS PROJECT !!!!!!:
@@ -20,5 +21,10 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 // - Make a place to show the error
 
 export default function Home() {
-  return <LoginRegisterForm loginOrRegister={true} />;
+  return (
+    <>
+      <LoginRegisterForm loginOrRegister={true} />;
+      <BouncingNavButton label="sexy button" targetRoute="/" />
+    </>
+  );
 }
