@@ -68,7 +68,12 @@ const userCreate = async (state: unknown, formData: FormData) => {
   }
 };
 
-const usersGetAll = async () => {
+interface UserDocument {
+  username: string;
+  password: string;
+}
+
+const usersGetAll = async (): Promise<UserDocument[]> => {
   try {
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
@@ -76,13 +81,12 @@ const usersGetAll = async () => {
     const result: Array<{
       username: string;
       password: string;
-    }> = await db.collection("users").find().toArray();
+    }> = await db.collection<UserDocument>("users").find().toArray();
 
     return result;
   } catch (error) {
     console.error("Database error failed to get users", error);
     throw error;
-    return "Data base problem";
   }
 };
 

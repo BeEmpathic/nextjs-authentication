@@ -4,20 +4,23 @@ import { userLogin } from "@/app/actions/usersActions";
 
 export default function Home() {
   // TODOS FOR THIS PROJECT !!!!!!:
-  // - Fix types cause type script has some huge problem to the database after that you my reconsider installing mongoose caues it's good just fucking do it and stop dogeing that
+  // - Think about checking how it was done that one component could change without the whole website reoloading something like this I think it was working on links to maybe group
+  // - Make the login / register form as a separate component so you have only one component to work with it will make work easier
+  // - Make so the list of users is hidden behind the loign/register form and them make it so it pops out to the right side from behind the login / register form
+  // - Add endless amount of todos, so the project takes one year to almost finish,
+  //  then leave it behind unfinished to learn something that won't get you a job
   // - Make so all the actions are in one file called usersActions
   // - make so it shows you if you made an user or not, maybe show somewhere avaiable users
 
   // - add mongoose maybe
-  // - Understand how the hashing works in next.js and how to check if the user gave correct password
+
   // - Code the authenticatoin logic and then finish the design
   // - use zod I guess to check the inputs I still don't know why would you use zod
   // - Try making external classes for inputs
   // - Finish styling:
   // -  Make it so it looks better
   // - Make a place to show the error
-  // - Finish styling the button
-  // - Add padding to the inputs
+
   const [state, action, pending] = useActionState(userLogin, undefined);
   if (state) console.log(state);
   return (
