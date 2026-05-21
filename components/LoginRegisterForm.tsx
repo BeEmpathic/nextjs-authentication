@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { userLogin, userCreate } from "@/app/actions/usersActions";
+import UsersAllList from "./AllUsersList";
 
 const LoginRegisterForm = ({
   loginOrRegister = true,
@@ -46,6 +47,7 @@ const LoginRegisterForm = ({
       <button className="active:bg-[#09414A] hover:bg-[#13636C] transition-all text-white bg-[#35858E] p-3 rounded-full border border-black hover:cursor-pointer duration-150">
         Add user!
       </button>
+      <UsersAllList />
     </form>
   );
 };

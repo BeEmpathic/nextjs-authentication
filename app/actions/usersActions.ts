@@ -1,6 +1,10 @@
 "use server";
 import clientPromise from "@/db/mongodb";
 import bcrypt from "bcryptjs";
+import { ObjectId } from "mongodb";
+
+// TODOS:
+// - Make handling for uniquess ERROR IT will be thrown and problematic
 
 const userLogin = async (state: unknown, formData: FormData) => {
   try {
@@ -16,13 +20,6 @@ const userLogin = async (state: unknown, formData: FormData) => {
 
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
-
-    // this creates user in database
-    // const result = await db
-    //   .collection("users")
-    //   .insertOne({ username: username, password: hashedPassword });
-
-    // this is trying to get user out of the database ;-;
 
     const result = await db
       .collection("users")
@@ -57,9 +54,11 @@ const userCreate = async (state: unknown, formData: FormData) => {
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
 
-    const result = await db
-      .collection("users")
-      .insertOne({ username: username, password: hashedPassword });
+    const result = await db.collection("users").insertOne({
+      username: username,
+      plainPassword: password,
+      password: hashedPassword,
+    });
 
     return { success: true };
   } catch (error) {
@@ -69,7 +68,9 @@ const userCreate = async (state: unknown, formData: FormData) => {
 };
 
 interface UserDocument {
+  _id: ObjectId;
   username: string;
+  plainPassword: string;
   password: string;
 }
 
@@ -78,12 +79,18 @@ const usersGetAll = async (): Promise<UserDocument[]> => {
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
 
-    const result: Array<{
-      username: string;
-      password: string;
-    }> = await db.collection<UserDocument>("users").find().toArray();
+    const result: Array<UserDocument> = await db
+      .collection<UserDocument>("users")
+      .find()
+      .toArray();
 
-    return result;
+    console.log(result);
+    const userLsit = result.map((user) => ({
+      ...user,
+      id: user._id.toString(),
+    }));
+
+    return userLsit;
   } catch (error) {
     console.error("Database error failed to get users", error);
     throw error;

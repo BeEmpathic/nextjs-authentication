@@ -6,12 +6,17 @@ db.runCommand({
             title: "User Object Validation",
             required: [
                 "username",
-                "password"
+                "password",
+                "passwordplain"
             ],
             properties: {
                 username: {
                     bsonType: "string",
                     description: "Name must be a string and it's required",
+                },
+                passwordPlain: {
+                    bsonType: "string",
+                    description: "You need the plain password for the testing purposes"
                 },
                 password: {
                     bsonType: "string", 
