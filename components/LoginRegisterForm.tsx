@@ -21,6 +21,8 @@ const LoginRegisterForm = ({
     undefined,
   );
 
+  console.log(state);
+
   return (
     <form
       action={action}
@@ -43,6 +45,7 @@ const LoginRegisterForm = ({
           name="password"
         />
       </div>
+      <div></div>
 
       <button className="active:bg-[#09414A] hover:bg-[#13636C] transition-all text-white bg-[#35858E] p-3 rounded-full border border-black hover:cursor-pointer duration-150">
         Add user!

@@ -87,7 +87,7 @@ const usersGetAll = async (): Promise<UserDocument[]> => {
     console.log(result);
     const userLsit = result.map((user) => ({
       ...user,
-      id: user._id.toString(),
+      _id: user._id.toString(),
     }));
 
     return userLsit;
