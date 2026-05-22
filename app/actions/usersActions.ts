@@ -60,8 +60,11 @@ const userCreate = async (state: unknown, formData: FormData) => {
       password: hashedPassword,
     });
 
-    return { success: true };
-  } catch (error) {
+    return { success: true, error: null };
+  } catch (error: any) {
+    if (error.code === 11000)
+      return { success: false, error: "Username has to be unique!" };
+
     console.error("Failed to insert document: ", error);
     throw error;
   }
@@ -91,7 +94,7 @@ const usersGetAll = async (): Promise<UserDocument[]> => {
     }));
 
     return userLsit;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Database error failed to get users", error);
     throw error;
   }

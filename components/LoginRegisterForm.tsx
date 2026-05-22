@@ -11,6 +11,7 @@ const LoginRegisterForm = ({
 }) => {
   let ActionStateInitialValue = userLogin;
 
+  // this sets if the form will be logging in user of create a new one
   if (loginOrRegister === true) {
     ActionStateInitialValue = userLogin;
   } else if (loginOrRegister === false) {
@@ -45,10 +46,12 @@ const LoginRegisterForm = ({
           name="password"
         />
       </div>
-      <div></div>
+      <div className={`${state?.success ? "text-green-700" : "text-red-700"}`}>
+        {state?.success ? "User created!" : state?.error}
+      </div>
 
       <button className="active:bg-[#09414A] hover:bg-[#13636C] transition-all text-white bg-[#35858E] p-3 rounded-full border border-black hover:cursor-pointer duration-150">
-        Add user!
+        {loginOrRegister ? "Login!" : "Add user!"}
       </button>
       <UsersAllList />
     </form>
