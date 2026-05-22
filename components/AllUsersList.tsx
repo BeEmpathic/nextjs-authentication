@@ -13,9 +13,10 @@ const UsersAllList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = () => {
+    const fetchData = async () => {
       try {
-        const data = usersGetAll();
+        const data = await usersGetAll();
+        console.log(data);
         if (Array.isArray(data)) {
           setUsersAll(data);
         }
@@ -32,7 +33,7 @@ const UsersAllList = () => {
   if (loading) return <div>Loading users...</div>;
 
   return (
-    <div>
+    <div className="absolute z-10">
       <ol>
         {usersAll.length > 0 ? (
           usersAll.map((user, index) => (

@@ -87,7 +87,6 @@ const usersGetAll = async (): Promise<UserDocument[]> => {
       .find()
       .toArray();
 
-    console.log(result);
     const userLsit = result.map((user) => ({
       ...user,
       _id: user._id.toString(),

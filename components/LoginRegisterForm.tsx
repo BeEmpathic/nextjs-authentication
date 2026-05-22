@@ -22,12 +22,10 @@ const LoginRegisterForm = ({
     undefined,
   );
 
-  console.log(state);
-
   return (
     <form
       action={action}
-      className="z-20 min-w-lg inset-shadow-xl shadow-purple-400 rounded-2xl bg-[#F0FFC2] flex flex-col p-8 border min-h-1/3 gap-5"
+      className="relative z-20 min-w-lg inset-shadow-xl shadow-purple-400 rounded-2xl bg-[#F0FFC2] flex flex-col p-8 border min-h-1/3 gap-5"
     >
       <h1 className="text-center font-bold">
         {loginOrRegister
