@@ -5,7 +5,7 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 export default function Home() {
   return (
     <>
-      <LoginRegisterForm loginOrRegister={false} />;
+      <LoginRegisterForm loginOrRegister={false} />
       <BouncingNavButton label="login" targetRoute="/" />
     </>
   );
