@@ -4,6 +4,8 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // TODOS FOR THIS PROJECT !!!!!!:
 
+// - Export the hidden button to separate comopnent
+// - finish using css for the hidden button to work you don't need JS for it just skill it
 // - Make so the list of users is hidden behind the loign/register form and them make it so it pops out to the right side from behind the login / register form
 // - Think about checking how it was done that one component could change without the whole website reoloading something like this I think it was working on links to maybe group
 // - Add endless amount of todos, so the project takes one year to almost finish,

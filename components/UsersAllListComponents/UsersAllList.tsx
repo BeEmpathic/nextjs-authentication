@@ -35,21 +35,21 @@ const UsersAllList = () => {
 
   return (
     <div
-      className={`absolute bg-slate-800 text-slate-100 p-6 rounded-lg border border-slate-700 shadow-xl tranistion-all duration-300 ease-in-out z-0 inset-0 ${isOpen ? "translate-x-full" : "translate-x-0"}`}
+      className={`main-list-div absolute bg-slate-800 text-slate-100 p-6 rounded-lg border border-slate-700 shadow-xl tranistion-all duration-300 ease-in-out z-0 inset-0 ${isOpen ? "translate-x-full" : "translate-x-0"}`}
     >
       {/* // might be problem with -translate-x-full here */}
       <div
-        className={`transition-all ease-in-out duration-300 absolute top-0 ${isOpen ? "opacity-100" : "opacity-0"} opacity-0 hover:opacity-100 hover:text-black bottom-0 left-0 w-4 flex items-center justify-center translate-z-full z-50`}
+        className={`the-button-wrapper group/user w-full transition-all ease-in-out duration-300 absolute translate-y-full ${isOpen ? "opacity-100" : "opacity-0"} hover:opacity-100 hover:text-black border bottom-0 flex items-center justify-center z-50`}
       >
         {/* looks like this button might have broken css classes too- */}
-        <div className="hover-area"></div>
+
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="opactiy-0 group-hover/auth:opacity-100 bg-slate-700 hover:bg-slate-200 w-4 h-8 rounded-l flex items-center justify-center text-[10px] font-mono tranistion-opacity cursor-pointer shadow-md"
+          className="opactiy-0 group-hover/users:opacity-100 bg-slate-700 hover:bg-slate-200 w-8 h-4 rounded-l flex items-center justify-center text-[10px] font-mono tranistion-opacity cursor-pointer shadow-md"
           title="Toggle Users List"
         >
-          {isOpen ? "◀" : "▶"}
+          {isOpen ? "▼" : "▲"}
         </button>
       </div>
       <ol>

@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { userLogin, userCreate } from "@/app/actions/usersActions";
-import UsersAllList from "./AllUsersList";
+import UsersAllList from "@/components/UsersAllListComponents/UsersAllList";
 
 const LoginRegisterForm = ({
   loginOrRegister = true,
