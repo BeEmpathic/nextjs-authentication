@@ -4,8 +4,6 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // TODOS FOR THIS PROJECT !!!!!!:
 
-// - Make handling for uniquess ERROR IT will be thrown and problematic
-// - Fix the bug there is a problem with retriving a list of users looks like ID is fucked up for some reason
 // - Make so the list of users is hidden behind the loign/register form and them make it so it pops out to the right side from behind the login / register form
 // - Think about checking how it was done that one component could change without the whole website reoloading something like this I think it was working on links to maybe group
 // - Add endless amount of todos, so the project takes one year to almost finish,
@@ -15,11 +13,12 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 // - add mongoose, maybe
 
 // - Code the authenticatoin logic and then finish the design
-// - use zod I guess to check the inputs I still don't know why would you use zod
+// - use zod I guess to check the inputs I still don't know why would you use zod for it
 // - Try making external classes for inputs
 // - Finish styling:
 // -  Make it so it looks better
-// - Make a place to show the error
+
+// - check why after changing the form the design flick a bit
 
 export default function Home() {
   return (
