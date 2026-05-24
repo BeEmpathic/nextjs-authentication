@@ -24,9 +24,9 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 export default function Home() {
   return (
-    <main className="flex margin-auto items-center justify-center bg-background text-foreground w-full min-h-dvh">
+    <div className="flex flex-col">
       <LoginRegisterForm loginOrRegister={true} />
       <BouncingNavButton label="Registration" targetRoute="/registration" />
-    </main>
+    </div>
   );
 }
