@@ -4,6 +4,7 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // TODOS FOR THIS PROJECT !!!!!!:
 
+// - make so the button isn't positioned absolute and it's a normal DOM element so the parent can stretch if it needs too
 // - Export the hidden button to separate comopnent
 // - finish using css for the hidden button to work you don't need JS for it just skill it
 // - Make so the list of users is hidden behind the loign/register form and them make it so it pops out to the right side from behind the login / register form
