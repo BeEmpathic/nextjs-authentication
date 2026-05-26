@@ -4,6 +4,9 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // TODOS FOR THIS PROJECT !!!!!!:
 
+// - check why your website refreshes so much xD
+// - Code the authenticatoin logic
+// - for now fuck the overflowing problem of the users list and move to next task
 // - make so the button isn't positioned absolute and it's a normal DOM element so the parent can stretch if it needs too
 // - Export the hidden button to separate comopnent
 // - finish using css for the hidden button to work you don't need JS for it just skill it
@@ -15,7 +18,7 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // - add mongoose, maybe
 
-// - Code the authenticatoin logic and then finish the design
+// - and then finish the design
 // - use zod I guess to check the inputs I still don't know why would you use zod for it
 // - Try making external classes for inputs
 // - Finish styling:

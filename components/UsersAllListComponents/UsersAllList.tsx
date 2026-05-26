@@ -35,7 +35,7 @@ const UsersAllList = () => {
 
   return (
     <div
-      className={`main-list-div bg-slate-800 text-slate-100 p-6 rounded-lg border border-slate-700 shadow-xl transition-all duration-300 ease-in-out z-0 inset-0 ${isOpen ? "translate-y-full" : "translate-y-0"}`}
+      className={`main-list-div relative w-full h-auto  bg-slate-800 text-slate-100 p-6 rounded-lg border border-slate-700 shadow-xl transition-all duration-300 ease-in-out z-0 inset-0 ${isOpen ? "translate-y-full" : "translate-y-0"}`}
     >
       {/* // might be problem with -translate-x-full here */}
       <div

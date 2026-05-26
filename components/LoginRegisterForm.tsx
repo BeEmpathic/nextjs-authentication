@@ -45,7 +45,11 @@ const LoginRegisterForm = ({
         />
       </div>
       <div className={`${state?.success ? "text-green-700" : "text-red-700"}`}>
-        {state?.success ? "User created!" : state?.error}
+        {state?.success
+          ? loginOrRegister
+            ? "Logged in!"
+            : "Added user!"
+          : state?.error}
       </div>
 
       <button className="active:bg-[#09414A] hover:bg-[#13636C] transition-all text-white bg-[#35858E] p-3 rounded-full border border-black hover:cursor-pointer duration-150">

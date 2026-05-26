@@ -26,12 +26,14 @@ const userLogin = async (state: unknown, formData: FormData) => {
       .find({ username: username })
       .toArray();
 
-    console.log("The result should be user's object: ", result);
-    console.log(result[0].username);
+    if (result.length <= 0) {
+      console.log("The if runned");
+      return { success: false, error: "There is no user with that username!" };
+    }
 
     const isPasswordValid = await bcrypt.compare(password, result[0].password);
 
-    console.log("Is password valid?: ", isPasswordValid);
+    if (!isPasswordValid) return { success: false, error: "Wrong password!" };
 
     return { success: true };
   } catch (error) {
@@ -87,6 +89,7 @@ const usersGetAll = async (): Promise<UserDocument[]> => {
       .find()
       .toArray();
 
+    console.log(result);
     const userLsit = result.map((user) => ({
       ...user,
       _id: user._id.toString(),
