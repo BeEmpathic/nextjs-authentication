@@ -2,9 +2,8 @@
 import clientPromise from "@/db/mongodb";
 import bcrypt from "bcryptjs";
 import { ObjectId } from "mongodb";
-
-// TODOS:
-// - Make handling for uniquess ERROR IT will be thrown and problematic
+import { createSession } from "@/lib/session";
+import { redirect } from "next/navigation";
 
 const userLogin = async (state: unknown, formData: FormData) => {
   try {
@@ -16,7 +15,6 @@ const userLogin = async (state: unknown, formData: FormData) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log(hashedPassword);
 
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
@@ -27,7 +25,6 @@ const userLogin = async (state: unknown, formData: FormData) => {
       .toArray();
 
     if (result.length <= 0) {
-      console.log("The if runned");
       return { success: false, error: "There is no user with that username!" };
     }
 
@@ -35,11 +32,12 @@ const userLogin = async (state: unknown, formData: FormData) => {
 
     if (!isPasswordValid) return { success: false, error: "Wrong password!" };
 
-    return { success: true };
+    await createSession(username);
   } catch (error) {
     console.error("Failed to insert document: ", error);
     throw error;
   }
+  redirect("/userpage");
 };
 
 const userCreate = async (state: unknown, formData: FormData) => {
@@ -89,7 +87,6 @@ const usersGetAll = async (): Promise<UserDocument[]> => {
       .find()
       .toArray();
 
-    console.log(result);
     const userLsit = result.map((user) => ({
       ...user,
       _id: user._id.toString(),
