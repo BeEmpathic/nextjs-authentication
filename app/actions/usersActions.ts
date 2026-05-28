@@ -77,7 +77,14 @@ interface UserDocument {
   password: string;
 }
 
-const usersGetAll = async (): Promise<UserDocument[]> => {
+type UserList = {
+  _id: string;
+  username: string;
+  plainPassword: string;
+  password: string;
+};
+
+const usersGetAll = async (): Promise<UserList[]> => {
   try {
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
