@@ -1,6 +1,7 @@
 "use server";
 
 import { SignJWT, jwtVerify } from "jose";
+import clientPromise from "@/db/mongodb";
 import { cookies } from "next/headers";
 
 const secretKey = process.env.SESSION_SECRET;
@@ -13,6 +14,9 @@ const encrypt = async (payload: { username: string; expiresAt: Date }) => {
     .setExpirationTime("7d")
     .sign(encodedKey);
 };
+
+const client = await clientPromise;
+const db = client.db("fileuploadnextjs");
 
 const decrypt = async (session: string | undefined = "") => {
   try {
@@ -27,6 +31,12 @@ const decrypt = async (session: string | undefined = "") => {
 
 const createSession = async (username: string) => {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+
+  const data = await db.collection("sessions").insertOne({
+    username: username,
+    expiresAt,
+  });
+
   const session = await encrypt({ username, expiresAt });
   const cookieStore = await cookies();
 
@@ -39,4 +49,9 @@ const createSession = async (username: string) => {
   });
 };
 
-export { encrypt, decrypt, createSession };
+const deleteSession = async () => {
+  const cookieStore = await cookies();
+  cookieStore.delete("session");
+};
+
+export { encrypt, decrypt, createSession, deleteSession };

@@ -2,7 +2,7 @@
 import clientPromise from "@/db/mongodb";
 import bcrypt from "bcryptjs";
 import { ObjectId } from "mongodb";
-import { createSession } from "@/lib/session";
+import { createSession, deleteSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 
 const userLogin = async (state: unknown, formData: FormData) => {
@@ -97,6 +97,11 @@ const usersGetAll = async (): Promise<UserDocument[]> => {
     console.error("Database error failed to get users", error);
     throw error;
   }
+};
+
+const logut = async () => {
+  await deleteSession();
+  redirect("/");
 };
 
 export { userLogin, userCreate, usersGetAll };

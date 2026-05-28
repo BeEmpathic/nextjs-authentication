@@ -25,4 +25,25 @@ db.runCommand({
             },
         },
     },
+    collMod: "sessions",
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Session object Validation",
+            required: [
+                "username",
+                "expiresAt",
+            ],
+            properties: {
+                username: {
+                    bsonType: "string",
+                    description: "Username must be a string and it's required",
+                },
+                expiresAt: {
+                    bsonType: "date",
+                    description: "Expires at has to be a bson Date, and it's required",
+                }
+            }
+        }
+    }
 })
