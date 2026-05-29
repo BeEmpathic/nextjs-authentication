@@ -14,8 +14,6 @@ const userLogin = async (state: unknown, formData: FormData) => {
       return { error: "Missing username or password" };
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
     const client = await clientPromise;
     const db = client.db("fileuploadnextjs");
 
@@ -32,7 +30,7 @@ const userLogin = async (state: unknown, formData: FormData) => {
 
     if (!isPasswordValid) return { success: false, error: "Wrong password!" };
 
-    await createSession(username);
+    await createSession(result[0]._id);
   } catch (error) {
     console.error("Failed to insert document: ", error);
     throw error;

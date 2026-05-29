@@ -4,10 +4,12 @@ import { SignJWT, jwtVerify } from "jose";
 import clientPromise from "@/db/mongodb";
 import { cookies } from "next/headers";
 
+import { ObjectId } from "mongodb";
+
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
 
-const encrypt = async (payload: { username: string; expiresAt: Date }) => {
+const encrypt = async (payload: { sessionId: string; expiresAt: Date }) => {
   return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
@@ -29,15 +31,18 @@ const decrypt = async (session: string | undefined = "") => {
   }
 };
 
-const createSession = async (username: string) => {
+const createSession = async (id: ObjectId) => {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
   const data = await db.collection("sessions").insertOne({
-    username: username,
+    userId: id,
     expiresAt,
+    expireAfterSeconds: 0,
   });
 
-  const session = await encrypt({ username, expiresAt });
+  const sessionId = data.insertedId.toString();
+
+  const session = await encrypt({ sessionId, expiresAt });
   const cookieStore = await cookies();
 
   cookieStore.set("session", session, {
