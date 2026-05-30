@@ -4,6 +4,7 @@ import LoginRegisterForm from "@/components/LoginRegisterForm";
 
 // TODOS FOR THIS PROJECT !!!!!!:
 
+// - make the session chjeckimg from database
 // - check how to check for session and not allow path traversal
 // - check if the approach you got from the offical documentation is correct
 // - so the session looks like it's getting created

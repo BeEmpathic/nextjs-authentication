@@ -109,4 +109,4 @@ const logut = async () => {
   redirect("/");
 };
 
-export { userLogin, userCreate, usersGetAll };
+export { userLogin, userCreate, usersGetAll, logut };
